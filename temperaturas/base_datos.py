@@ -96,7 +96,7 @@ numero_jugadores_mas_jugadores = jugadores_por_universidad.max()
 # Imprime la universidad con más jugadores y su número
 print("La universidad que ha producido más jugadores es", universidad_mas_jugadores, "con un total de", numero_jugadores_mas_jugadores, "jugadores.")
 
-print(nba_df.columns)
-nba_df = nba_df.drop('Unnamed: 0', axis=1)
+# print(nba_df.columns)
+# nba_df = nba_df.drop('Unnamed: 0', axis=1)
 
-print(nba_df.columns)
+# print(nba_df.columns)
