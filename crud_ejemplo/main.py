@@ -12,9 +12,6 @@ class Usuario:
         self.edad = edad
 
 class AdministrarUsuario:
-   
-
-
    #envio el id y el dato que voy a actuailizar
    def actualizar_usuario(id, datos):
         #leo el json
