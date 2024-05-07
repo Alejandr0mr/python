@@ -16,11 +16,13 @@ cursor.execute(read_data_query)
 data = cursor.fetchall()
 # Recuperar los datos y mostrarlos
 
-print(type(data))
+# print(type(data))
+
 for row in data:
     print(f"ID: {row[0]}")
     print(f"Nombre: {row[1]}")
     print(f"Apellido: {row[2]}")
+
 
 
 cursor.close()

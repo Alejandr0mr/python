@@ -30,8 +30,9 @@ def iniciar_sesion():
 def crear_usuario():
     usuarios = cargar_usuarios()
     usuario = input("Ingrese un nombre de usuario: ")
+    correo= input("Ingrese un correo electronico")
     contrasena = input("Ingrese una contraseña: ")
-    nuevo_usuario = {"usuario": usuario, "contrasena": contrasena}
+    nuevo_usuario = {"usuario": usuario,"correo": correo ,"contrasena": contrasena}
     usuarios.append(nuevo_usuario)
     guardar_usuarios(usuarios)
     print("Usuario creado exitosamente.")
