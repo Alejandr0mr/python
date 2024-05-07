@@ -16,15 +16,14 @@ cursor = db_connection.cursor()
 create_table_query ="""
 CREATE TABLE usuarios
 (
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(10),
-last_name VARCHAR(10)
-age INT,
-email VARCHAR(15)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(10),
+    last_name VARCHAR(10),
+    age INT,
+    email VARCHAR(15)
 )
 """
 cursor.execute(create_table_query)
-
 #un comentario que si se ejecuto
 db_connection.commit()
 
