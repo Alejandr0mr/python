@@ -1,38 +1,41 @@
+from crud_biblioteca.methods.user_options import iniciar_sesion, crear_usuario
+from crud_biblioteca.methods.libros_options import crear_libro, leer_libros, actualizar_libro, eliminar_libro
 
-from methods.user_options import Users
-# from methods.librarian_options import Admin
+# Menú principal
+def menu_principal():
+    while True:
+        print("\nSistema de Biblioteca")
+        print("1. Crear libro")
+        print("2. Leer libros")
+        print("3. Actualizar libro")
+        print("4. Eliminar libro")
+        print("5. Salir")
+        opcion = input("Ingrese una opción: ")
 
-import json
-
-print("\n_________Bienvenido al sistema de libros_________\n")
-
-while True:
-    print("Opciones disponibles:\n")
-    print("\t1.Iniciar sesión")
-    print("\t2.Registrarse")
-    print("\t0.Salir\n")
-
-    opc = int(input("Elija una opción: "))
-
-    if opc == 1:
-        print("Inicio de sesión:\n") 
-        email = input("\tCorreo: ")
-        password = input("\tContraseña: ")
-
-        if Users.login(email, password):
-            print("Inicio de sesión exitoso.")
+        if opcion == "1":
+            crear_libro()
+        elif opcion == "2":
+            leer_libros()
+        elif opcion == "3":
+            actualizar_libro()
+        elif opcion == "4":
+            eliminar_libro()
+        elif opcion == "5":
+            print("¡Hasta luego!")
+            break
         else:
-            print("Correo o contraseña incorrectos.")
+            print("Opción inválida. Intente nuevamente.")
 
-    elif opc == 2:
-       Users.register_menu()
-    elif opc == 0:
-        print("Saliendo del sistema. ¡Hasta luego!")
-        break 
+# Iniciar el programa
+print("Bienvenido al Sistema de Biblioteca")
+print("1. Iniciar sesión")
+print("2. Crear nuevo usuario")
+opcion = input("Ingrese una opción: ")
 
-    else:
-        print("Opción no válida. Por favor, elija una opción válida.\n")
-
-
-    
-      
+if opcion == "1":
+    if iniciar_sesion():
+        menu_principal()
+elif opcion == "2":
+    crear_usuario()
+else:
+    print("Opción inválida.")

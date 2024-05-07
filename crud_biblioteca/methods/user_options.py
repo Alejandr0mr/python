@@ -1,56 +1,37 @@
 import json
 
-class Users: 
+# Cargar los usuarios desde el archivo JSON
+def cargar_usuarios():
+    try:
+        with open("crud_biblioteca/json/usuarios.json", "r") as archivo:
+            usuarios = json.load(archivo)
+    except FileNotFoundError:
+        usuarios = []
+    return usuarios
 
-    def __init__(self, id, name, email, password):
-        self.id = id
-        self.name = name
-        self.email = email
-        self.password = password
+# Guardar los usuarios en el archivo JSON
+def guardar_usuarios(usuarios):
+    with open("crud_biblioteca/json/usuarios.json", "w") as archivo:
+        json.dump(usuarios, archivo, indent=4)
 
-    def register_menu():
-        print("Registro:\n")
-        name = input("\tNombre: ")
-        email = input("\tCorreo: ")
-        password = input("\tContraseña: ")
-        
-        # Obtener el siguiente ID disponible
-        next_id = Users.get_next_id()
-        
-        User = Users(next_id, name, email, password)
-        Users.registrar_usuario(User)
-    
-
-    def get_next_id():
-        with open('./crud_biblioteca/bd/usuarios.json', 'r') as file:
-            usuarios = json.load(file)
-
-        if not usuarios:
-            return 1
-        else:
-            return max(usuario['id'] for usuario in usuarios) + 1
-    
-    def registrar_usuario(user):
-        usuario_dict = {
-            'id': user.id,
-            'nombre': user.name,
-            'email': user.email,
-            'password': user.password
-        }
-
-        with open('./crud_biblioteca/bd/usuarios.json', 'w', encoding="utf-8") as file:
-            json.dump(usuario_dict, file)
-            file.write('\n')  # Agregar un salto de línea después de cada usuario
-
-        print(f"______________Usuario {usuario_dict['nombre']} registrado exitosamente!______________\n")
-
-
-    def login(email, password):
-        with open('./crud_biblioteca/bd/usuarios.json', 'r') as file:
-            usuarios = json.load(file)
-
-        for usuario in usuarios:
-         if usuario['email'] == email and usuario['password'] == password:
+# Inicio de sesión
+def iniciar_sesion():
+    usuarios = cargar_usuarios()
+    usuario = input("Ingrese su nombre de usuario: ")
+    contrasena = input("Ingrese su contraseña: ")
+    for user in usuarios:
+        if user["usuario"] == usuario and user["contrasena"] == contrasena:
+            print("Inicio de sesión exitoso.")
             return True
+    print("Nombre de usuario o contraseña incorrectos.")
+    return False
 
-        return False
+# Crear un nuevo usuario
+def crear_usuario():
+    usuarios = cargar_usuarios()
+    usuario = input("Ingrese un nombre de usuario: ")
+    contrasena = input("Ingrese una contraseña: ")
+    nuevo_usuario = {"usuario": usuario, "contrasena": contrasena}
+    usuarios.append(nuevo_usuario)
+    guardar_usuarios(usuarios)
+    print("Usuario creado exitosamente.")
