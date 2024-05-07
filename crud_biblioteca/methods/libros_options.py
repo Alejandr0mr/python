@@ -1,5 +1,5 @@
 import json
-
+# from bd.insert_data_db import eliminar_libro, insert_libro
 # Cargar los datos de los libros desde el archivo JSON
 def cargar_libros():
     try:
@@ -11,9 +11,9 @@ def cargar_libros():
 
 # Guardar los datos de los libros en el archivo JSON
 def guardar_libros(libros):
-    with open("crud_biblioteca/json/libros.json", "w") as archivo:
-        json.dump(libros, archivo, indent=4)
-
+    # with open("crud_biblioteca/json/libros.json", "w") as archivo:
+    #     json.dump(libros, archivo, indent=4)
+    pass
 # Crear un nuevo libro
 def crear_libro():
     titulo = input("Ingrese el título del libro: ")
@@ -21,7 +21,8 @@ def crear_libro():
     nuevo_libro = {"titulo": titulo, "autor": autor}
     libros = cargar_libros()
     libros.append(nuevo_libro)
-    guardar_libros(libros)
+    # insert_libro(nuevo_libro)
+
     print("Libro creado exitosamente.")
 
 # Leer todos los libros
