@@ -15,13 +15,14 @@ DELETE FROM usuarios
 WHERE id = %s 
 """
 # Seleccionamos el ID que queremos eliminar
-user_id = 1
+user_id = [3,4]
 
+for id in user_id:
+    
 # El valor del ID debe pasarse como una tupla
-data_to_delete = (user_id,)
-
-cursor.execute(delete_data_query, data_to_delete)
-db_connection.commit()
+    data_to_delete = (id,)
+    cursor.execute(delete_data_query, data_to_delete)
+    db_connection.commit()
 
 cursor.close()
 db_connection.close()
