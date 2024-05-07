@@ -3,7 +3,7 @@ import json
 # Cargar los usuarios desde el archivo JSON
 def cargar_usuarios():
     try:
-        with open("usuarios.json", "r") as archivo:
+        with open("crud_ia/usuarios.json", "r") as archivo:
             usuarios = json.load(archivo)
     except FileNotFoundError:
         usuarios = []
@@ -11,13 +11,13 @@ def cargar_usuarios():
 
 # Guardar los usuarios en el archivo JSON
 def guardar_usuarios(usuarios):
-    with open("usuarios.json", "w") as archivo:
+    with open("crud_ia/usuarios.json", "w") as archivo:
         json.dump(usuarios, archivo, indent=4)
 
 # Cargar los datos de los libros desde el archivo JSON
 def cargar_libros():
     try:
-        with open("libros.json", "r") as archivo:
+        with open("crud_ia/libros.json", "r") as archivo:
             libros = json.load(archivo)
     except FileNotFoundError:
         libros = []
@@ -25,7 +25,7 @@ def cargar_libros():
 
 # Guardar los datos de los libros en el archivo JSON
 def guardar_libros(libros):
-    with open("libros.json", "w") as archivo:
+    with open("crud_ia/libros.json", "w") as archivo:
         json.dump(libros, archivo, indent=4)
 
 
