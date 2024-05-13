@@ -1,8 +1,10 @@
-from crud_biblioteca.methods.user_options import iniciar_sesion, crear_usuario
-from crud_biblioteca.methods.libros_options import crear_libro, leer_libros, actualizar_libro, eliminar_libro
+from methods.user_options import iniciar_sesion, crear_usuario
+from methods.libros_options import crear_libro, leer_libros, actualizar_libro, eliminar_libro
 
 # Menú principal
 def menu_principal():
+
+    # menú que sale si el inicio de sesión es valido
     while True:
         print("\nSistema de Biblioteca")
         print("1. Crear libro")
@@ -33,6 +35,7 @@ print("2. Crear nuevo usuario")
 opcion = input("Ingrese una opción: ")
 
 if opcion == "1":
+    # Llamamos la función de iniciar sesión y si es valido muestra el menú principal 
     if iniciar_sesion():
         menu_principal()
 elif opcion == "2":

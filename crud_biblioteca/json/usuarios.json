@@ -2,5 +2,10 @@
     {
         "usuario": "alejandro",
         "contrasena": "123"
+    },
+    {
+        "usuario": "alejandro",
+        "correo": "tortugal2004@gmail.com",
+        "contrasena": "alejo"
     }
 ]

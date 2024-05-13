@@ -1,38 +1,28 @@
-import json
-
-# Cargar los usuarios desde el archivo JSON
-def cargar_usuarios():
-    try:
-        with open("crud_biblioteca/json/usuarios.json", "r") as archivo:
-            usuarios = json.load(archivo)
-    except FileNotFoundError:
-        usuarios = []
-    return usuarios
-
-# Guardar los usuarios en el archivo JSON
-def guardar_usuarios(usuarios):
-    with open("crud_biblioteca/json/usuarios.json", "w") as archivo:
-        json.dump(usuarios, archivo, indent=4)
+# Importamos las funciones
+from bd.usuarios_db import insert_usuarios_bd, read_usuarios_bd
 
 # Inicio de sesión
 def iniciar_sesion():
-    usuarios = cargar_usuarios()
-    usuario = input("Ingrese su nombre de usuario: ")
-    contrasena = input("Ingrese su contraseña: ")
+    #Traemos todos los usuarios
+    usuarios = read_usuarios_bd()
+
+    name = input("Ingrese su nombre de usuario: ")
+    password = input("Ingrese su contraseña: ")
+
     for user in usuarios:
-        if user["usuario"] == usuario and user["contrasena"] == contrasena:
+        #Hacemos la validación
+        if user[1] == name and user[2] == password:
             print("Inicio de sesión exitoso.")
             return True
+
     print("Nombre de usuario o contraseña incorrectos.")
     return False
 
 # Crear un nuevo usuario
 def crear_usuario():
-    usuarios = cargar_usuarios()
-    usuario = input("Ingrese un nombre de usuario: ")
-    correo= input("Ingrese un correo electronico")
-    contrasena = input("Ingrese una contraseña: ")
-    nuevo_usuario = {"usuario": usuario,"correo": correo ,"contrasena": contrasena}
-    usuarios.append(nuevo_usuario)
-    guardar_usuarios(usuarios)
+    name = input("Ingrese un nombre de usuario: ")
+    email = input("Ingrese un correo electrónico: ")
+    password = input("Ingrese una contraseña: ")
+
+    insert_usuarios_bd(name, email, password)
     print("Usuario creado exitosamente.")
