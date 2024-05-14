@@ -29,16 +29,24 @@ def menu_principal():
             print("Opción inválida. Intente nuevamente.")
 
 # Iniciar el programa
-print("Bienvenido al Sistema de Biblioteca")
-print("1. Iniciar sesión")
-print("2. Crear nuevo usuario")
-opcion = input("Ingrese una opción: ")
+def main():
 
-if opcion == "1":
-    # Llamamos la función de iniciar sesión y si es valido muestra el menú principal 
-    if iniciar_sesion():
-        menu_principal()
-elif opcion == "2":
-    crear_usuario()
-else:
-    print("Opción inválida.")
+    while True:
+        print("Bienvenido al Sistema de Biblioteca")
+        print("1. Iniciar sesión")
+        print("2. Crear nuevo usuario")
+        print("3. Salir")
+        opcion = input("Ingrese una opción: ")
+
+        if opcion == "1":
+            # Llamamos la función de iniciar sesión y si es valido muestra el menú principal 
+            if iniciar_sesion():
+                menu_principal()
+        elif opcion == "2":
+            crear_usuario()
+        elif opcion == "3":
+            break
+        else:
+            print("Opción inválida.")
+
+main();
