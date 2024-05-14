@@ -11,7 +11,7 @@ def iniciar_sesion():
 
     for user in usuarios:
         #Hacemos la validación
-        if user[1] == name and user[2] == password:
+        if user[1] == name and user[3] == password:
             print("Inicio de sesión exitoso.")
             return True
 
