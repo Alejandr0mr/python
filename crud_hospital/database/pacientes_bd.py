@@ -9,7 +9,8 @@ db_connection = mysql.connector.connect(
 )
 cursor = db_connection.cursor()
 
-# Función para crear un nuevo libro
+# Función para crear un 
+
 def insert_paciente_bd(nombre, apellido, identificacion, fecha_nacimiento, genero, motivo_consulta, diagnostico):
     insert_data_query = """
         INSERT INTO pacientes (nombre, apellido, identificacion, fecha_nacimiento, genero, motivo, diagnostico)
@@ -25,6 +26,13 @@ def insert_paciente_bd(nombre, apellido, identificacion, fecha_nacimiento, gener
 # Función para leer todos los libros
 def read_pacientes_bd():
 
+    db_connection = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="hospital"
+    )
+    cursor = db_connection.cursor()
     
     read_data_query = """
     SELECT * FROM pacientes

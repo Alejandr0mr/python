@@ -24,7 +24,14 @@ def insert_trabajador_bd(nombre, apellido, identificacion, cargo, id_departament
 
 # Función para leer todos los trabajadores
 def read_trabajador_bd():
-
+    
+    db_connection = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="hospital"
+    )
+    cursor = db_connection.cursor()
     read_data_query = """
     SELECT * FROM trabajadores
     """

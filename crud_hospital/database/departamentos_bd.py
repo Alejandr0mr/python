@@ -24,6 +24,15 @@ def insert_departamento_bd(nombre):
 
 # Función para leer todos los departamentos
 def read_departamentos_bd():
+
+    db_connection = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="hospital"
+    )
+    cursor = db_connection.cursor()
+
     read_data_query = """
     SELECT * FROM departamentos
     """
