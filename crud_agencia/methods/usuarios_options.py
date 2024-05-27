@@ -1,4 +1,6 @@
-from database.pacientes_bd import insert_usuario_bd, read_usuarios_bd, update_usuario_bd, delete_usuario_bd
+from database.usuarios_bd import insert_usuario_bd, read_usuarios_bd, update_usuario_bd, delete_usuario_bd
+from database.hoteles_bd import read_hoteles_bd
+from database.reservas_bd import read_reservas_bd
 
 # Función para crear un nuevo usuario
 def crear_usuario():

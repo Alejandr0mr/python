@@ -7,17 +7,12 @@ db_connection = mysql.connector.connect(
     database="agencia_de_viaje"
 )
 
-
-
 # Cursor para pasar información de un lado a otro.
 cursor = db_connection.cursor()
-#Crea la tabla libros en la base de datos.
 
+# Crea la tabla usuarios en la base de datos.
 def crear_tabla_usuarios():
-
-    cursor = db_connection.cursor()
-    
-    create_table_query ="""
+    create_table_query = """
     CREATE TABLE usuarios
     (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -31,58 +26,42 @@ def crear_tabla_usuarios():
     )
     """
     cursor.execute(create_table_query)
-    #un comentario que si se ejecuto
     db_connection.commit()
-
-    #se cierra
-    print("tabla  creada")
-
+    print("Tabla usuarios creada")
 
 def crear_tabla_hoteles():
-    cursor = db_connection.cursor()
-    
-    create_table_query ="""
+    create_table_query = """
     CREATE TABLE hoteles
     (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR(20),
-        direccion VARCHAR(30),
-        ciudad INT,
-       
+        nombre VARCHAR(50),
+        direccion VARCHAR(50),
+        ciudad VARCHAR(50)
     )
     """
     cursor.execute(create_table_query)
-    #un comentario que si se ejecuto
     db_connection.commit()
-    print("tabla  creada")
-
+    print("Tabla hoteles creada")
 
 def crear_tabla_reservas():
-    cursor = db_connection.cursor()
-    create_table_query ="""
+    create_table_query = """
     CREATE TABLE reservas
     (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        aerolinea VARCHAR(25),
-        fecha VARCHAR(20),
-        destino VARCHAR(20),
+        aerolinea VARCHAR(50),
+        fecha DATE,
+        destino VARCHAR(50)
     )
     """
     cursor.execute(create_table_query)
-    #un comentario que si se ejecuto
     db_connection.commit()
-
-    #se cierra
-    print("tabla  creada")
+    print("Tabla reservas creada")
 
 # Llamar a las funciones para crear las tablas
-# crear_tabla_hoteles()
-# crear_tabla_reservas()
+crear_tabla_hoteles()
+crear_tabla_reservas()
 crear_tabla_usuarios()
-
-
 
 # Cerrar el cursor y la conexión a la base de datos
 cursor.close()
 db_connection.close()
-

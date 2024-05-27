@@ -1,8 +1,7 @@
 
-from crud_agencia.methods.usuarios_options import crear_paciente, leer_paciente, actualizar_paciente, eliminar_paciente
-from crud_agencia.methods.reservas_options import crear_trabajador, leer_trabajador, actualizar_trabajador, eliminar_trabajador
-from methods.departamentos_options import crear_departamento, leer_departamento, actualizar_departamento, eliminar_departamento
-from database.consultas_bd import read_pacientes_dengue_bd, read_pacientes_cirugia_bd, read_doctores_departamento_bd, read_enfermeros_bd
+from methods.usuarios_options import crear_usuario, leer_usuarios, actualizar_usuario, eliminar_usuario
+from methods.hoteles_options import crear_hotel, leer_hoteles, actualizar_hotel, eliminar_hotel
+from methods.reservas_options import crear_reserva, leer_reservas, actualizar_reserva, eliminar_reserva
 
 def usuarios():
     while True:
@@ -16,7 +15,7 @@ def usuarios():
      if opcion == "1":
          crear_usuario()
      elif opcion == "2":
-         leer_usuario()
+         leer_usuarios()
      elif opcion == "3":
          actualizar_usuario()
      elif opcion == "4":
@@ -39,7 +38,7 @@ def hoteles():
      if opcion == "1":
          crear_hotel()
      elif opcion == "2":
-         leer_hotel()
+         leer_hoteles()
      elif opcion == "3":
          actualizar_hotel()
      elif opcion == "4":
@@ -62,7 +61,7 @@ def reservas():
      if opcion == "1":
          crear_reserva()
      elif opcion == "2":
-         leer_reserva()
+         leer_reservas()
      elif opcion == "3":
          actualizar_reserva()
      elif opcion == "4":
