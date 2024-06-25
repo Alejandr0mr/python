@@ -40,7 +40,7 @@ def read_pacientes_bd():
     cursor.execute(read_data_query)
     data = cursor.fetchall()
 
-    return data
+    return data 
 
 
 # Función para actualizar un libro existente
